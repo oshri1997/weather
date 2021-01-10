@@ -28,7 +28,6 @@ const SearchBar = () => {
       .catch(({ response }) => {
         setError(response.data.message);
       });
-
     setCity("");
   };
   return (
