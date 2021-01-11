@@ -56,7 +56,7 @@ const Content = styled.div`
   align-items: center;
 `;
 const CityName = styled.h1`
-  font-size: 60px;
+  font-size: clamp(34px, 0.8vw, 42px);
   color: #fff;
 `;
 const Temp = styled.h1`
