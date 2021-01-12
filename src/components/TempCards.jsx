@@ -49,8 +49,10 @@ const Card = styled.div`
 `;
 
 const Content = styled.div`
+  /* background: rgba(255, 255, 255, 0.4); */
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 350px;
   justify-content: space-between;
   align-items: center;
@@ -64,8 +66,9 @@ const Temp = styled.h1`
   color: #fff;
 `;
 const Description = styled.h1`
-  font-size: clamp(45px, 2vw, 60px);
+  font-size: clamp(40px, 3vw, 80px);
   color: #fff;
+  white-space: nowrap;
 `;
 
 export default TempCards;
