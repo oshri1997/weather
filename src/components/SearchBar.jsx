@@ -16,8 +16,10 @@ const SearchBar = () => {
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric`
       )
       .then(({ data }) => {
+        console.log(data);
         dispatch(
           setWeather({
+            _id: data.id,
             city: data.name,
             temp: data.main.temp,
             description: data.weather[0].description,

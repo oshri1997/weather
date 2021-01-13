@@ -6,11 +6,9 @@ import {
   Route,
   Switch,
   Redirect,
-  Link,
 } from "react-router-dom";
 import Favorite from "./pages/Favorite";
 import styled from "styled-components";
-import LogoImg from "./images/Logo.svg";
 import Header from "./components/Header";
 
 function App() {

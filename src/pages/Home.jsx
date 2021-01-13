@@ -20,6 +20,7 @@ const Home = () => {
         .then(({ data }) => {
           dispatch(
             setWeather({
+              _id: data.id,
               city: data.name,
               temp: data.main.temp,
               description: data.weather[0].description,

@@ -3,11 +3,18 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { selectWeather } from "../features/weatherSlice";
 import ReactLoading from "react-loading";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addFavorite, removeFavorite } from "../features/favoriteSlice";
+import { selectFavorite } from "../features/favoriteSlice";
 
 const TempCards = () => {
-  const state = useSelector(selectWeather);
+  const weatherState = useSelector(selectWeather);
+  const favoriteState = useSelector(selectFavorite);
+  const dispatch = useDispatch();
   const [display, isDisplay] = useState(false);
-  const { weather } = state;
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const displayAfterTwoSec = () => {
@@ -18,13 +25,35 @@ const TempCards = () => {
     displayAfterTwoSec();
   }, []);
 
+  useEffect(() => {
+    const result = favoriteState.find((fav) => fav.id === weatherState.id);
+    if (result) {
+      setIsFavorite(true);
+    } else setIsFavorite(false);
+  }, [favoriteState, weatherState]);
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(weatherState.id));
+      setIsFavorite(!isFavorite);
+    } else {
+      dispatch(addFavorite(weatherState));
+      setIsFavorite(!isFavorite);
+    }
+  };
+
   return (
     <Card>
       {display ? (
         <Content>
-          <CityName>{weather.city}</CityName>
-          <Temp> {Math.floor(weather.temp)}°</Temp>
-          <Description>{weather.description}</Description>
+          {isFavorite ? (
+            <FavoriteIconOn onClick={toggleFavorite} />
+          ) : (
+            <FavoriteIconOff onClick={toggleFavorite} />
+          )}
+          <CityName>{weatherState.city}</CityName>
+          <Temp> {Math.floor(weatherState.temp)}°</Temp>
+          <Description>{weatherState.description}</Description>
         </Content>
       ) : (
         <ReactLoading type="bubbles" color="#fff" height={150} width={150} />
@@ -47,6 +76,23 @@ const Card = styled.div`
   border-radius: 15px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
   border: 1px solid #fff;
+  position: relative;
+`;
+const FavoriteIconOff = styled(AiOutlineStar)`
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+`;
+const FavoriteIconOn = styled(AiFillStar)`
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
 `;
 
 const Content = styled.div`
