@@ -11,26 +11,19 @@ import {
 import Favorite from "./pages/Favorite";
 import styled from "styled-components";
 import LogoImg from "./images/Logo.svg";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <>
-        <Container>
-          <LogoContainer>
-            <ImageContiner>
-              <Link to="/">
-                <ImageLogo src={LogoImg} alt="Logo" />
-              </Link>
-            </ImageContiner>
-          </LogoContainer>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/favorite" component={Favorite} />
-            <Redirect to="/" />
-          </Switch>
-        </Container>
-      </>
+      <Container>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/favorite" component={Favorite} />
+          <Redirect to="/" />
+        </Switch>
+      </Container>
     </Router>
   );
 }
@@ -44,18 +37,6 @@ const Container = styled.section`
   );
   position: relative;
   overflow: hidden;
-`;
-const LogoContainer = styled.div`
-  width: 75%;
-  margin: 3rem auto 0;
-`;
-const ImageContiner = styled.div`
-  width: 12rem;
-  height: auto;
-`;
-const ImageLogo = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 export default App;

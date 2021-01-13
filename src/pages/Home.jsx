@@ -45,34 +45,13 @@ const Home = () => {
   );
 };
 
-const Container = styled.section`
-  height: 100vh;
-  background: linear-gradient(
-    to bottom right,
-    rgba(69, 135, 246, 0.8),
-    rgba(69, 246, 165, 0.8)
-  );
-  position: relative;
-  overflow: hidden;
-`;
-const LogoContainer = styled.div`
-  width: 75%;
-  margin: 3rem auto 0;
-`;
-const ImageContiner = styled.div`
-  width: 12rem;
-  height: auto;
-`;
-const ImageLogo = styled.img`
-  width: 100%;
-  height: 100%;
-`;
 const BubbleTop = styled.img`
   position: absolute;
   top: -150px;
   right: -180px;
   height: auto;
   width: 45rem;
+  z-index: -5;
 `;
 const BubbleBottom = styled.img`
   position: absolute;

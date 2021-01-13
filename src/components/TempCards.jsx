@@ -6,20 +6,21 @@ import ReactLoading from "react-loading";
 
 const TempCards = () => {
   const state = useSelector(selectWeather);
-  const [twoSec, setTwoSec] = useState(false);
+  const [display, isDisplay] = useState(false);
   const { weather } = state;
+
   useEffect(() => {
-    const chageTwoSec = () => {
+    const displayAfterTwoSec = () => {
       setTimeout(() => {
-        setTwoSec(true);
+        isDisplay(true);
       }, 1000);
     };
-    chageTwoSec();
+    displayAfterTwoSec();
   }, []);
 
   return (
     <Card>
-      {twoSec ? (
+      {display ? (
         <Content>
           <CityName>{weather.city}</CityName>
           <Temp> {Math.floor(weather.temp)}°</Temp>
@@ -49,26 +50,28 @@ const Card = styled.div`
 `;
 
 const Content = styled.div`
-  /* background: rgba(255, 255, 255, 0.4); */
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 350px;
   justify-content: space-between;
   align-items: center;
+  padding: 0 2rem;
 `;
 const CityName = styled.h1`
-  font-size: clamp(34px, 0.8vw, 42px);
+  font-size: 50px;
   color: #fff;
+  white-space: nowrap;
 `;
 const Temp = styled.h1`
   font-size: 80px;
   color: #fff;
 `;
 const Description = styled.h1`
-  font-size: clamp(40px, 3vw, 80px);
+  font-size: 45px;
   color: #fff;
   white-space: nowrap;
+  display: inline-block;
 `;
 
 export default TempCards;
