@@ -28,7 +28,6 @@ const SearchBar = () => {
       .catch(({ response }) => {
         setError(response.data.message);
       });
-
     setCity("");
   };
   return (
@@ -43,7 +42,6 @@ const SearchBar = () => {
         <SearchButton onClick={Search} type="submit">
           Search
         </SearchButton>
-        {/* <ErrorMessage>{error}error</ErrorMessage> */}
         {error ? <ErrorMessage>{error}</ErrorMessage> : null}
       </FormContainer>
     </InputConainer>
