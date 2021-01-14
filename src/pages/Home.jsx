@@ -33,7 +33,6 @@ const Home = () => {
   return (
     <>
       <BubbleTop src={BubbleOne} alt="Bubble" />
-      <BubbleBottom src={BubbleTwo} alt="Bubble" />
       <GlassContainer>
         <Glass>
           <SearchBar />
@@ -42,6 +41,7 @@ const Home = () => {
           </CardContainer>
         </Glass>
       </GlassContainer>
+      <BubbleBottom src={BubbleTwo} alt="Bubble" />
     </>
   );
 };

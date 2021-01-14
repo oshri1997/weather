@@ -12,7 +12,7 @@ const Header = () => {
 
       <NavMenu>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/favorite">Favorite</NavLink>
+        <NavLink to="/favorite">My Favorite</NavLink>
       </NavMenu>
     </Nav>
   );

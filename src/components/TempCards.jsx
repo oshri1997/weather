@@ -67,14 +67,14 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   height: 450px;
-  width: 400px;
+  width: 550px;
   background: linear-gradient(
     to bottom right,
     rgba(69, 246, 165, 1),
     rgba(69, 135, 246, 1)
   );
   border-radius: 15px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   border: 1px solid #fff;
   position: relative;
 `;
