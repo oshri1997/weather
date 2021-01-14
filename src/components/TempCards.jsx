@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+
 import { selectWeather } from "../features/weatherSlice";
 import ReactLoading from "react-loading";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../features/favoriteSlice";
 import { selectFavorite } from "../features/favoriteSlice";
 
@@ -17,20 +17,30 @@ const TempCards = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const displayAfterTwoSec = () => {
-      setTimeout(() => {
-        isDisplay(true);
-      }, 1000);
-    };
-    displayAfterTwoSec();
-  }, []);
+    if (!weatherState.city) {
+      const displayAfterTwoSec = () => {
+        setTimeout(() => {
+          isDisplay(true);
+        }, 1000);
+      };
+      displayAfterTwoSec();
+    } else {
+      isDisplay(true);
+    }
+  }, [weatherState]);
 
   useEffect(() => {
     const result = favoriteState.find((fav) => fav.id === weatherState.id);
     if (result) {
       setIsFavorite(true);
     } else setIsFavorite(false);
+
+    saveToLocalStorage(favoriteState);
   }, [favoriteState, weatherState]);
+
+  const saveToLocalStorage = (favorites) => {
+    localStorage.setItem("Favorites", JSON.stringify(favorites));
+  };
 
   const toggleFavorite = () => {
     if (isFavorite) {

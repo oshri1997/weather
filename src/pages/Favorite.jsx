@@ -12,10 +12,14 @@ const Favorite = () => {
       <FavoriteContainer>
         {favoriteState.length > 0 ? (
           favoriteState.map((favorite) => (
-            <FavoriteCard cityName={favorite.city} temp={favorite.temp} />
+            <FavoriteCard
+              key={favorite.id}
+              cityName={favorite.city}
+              temp={favorite.temp}
+            />
           ))
         ) : (
-          <NoFavorites>no favorites</NoFavorites>
+          <NoFavorites>No Favorites</NoFavorites>
         )}
       </FavoriteContainer>
     </Glass>
@@ -44,6 +48,7 @@ const FavoriteContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   column-gap: 3rem;
+  row-gap: 2rem;
 `;
 const NoFavorites = styled.h1`
   color: #fff;

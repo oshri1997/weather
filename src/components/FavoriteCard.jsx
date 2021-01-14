@@ -4,7 +4,7 @@ const FavoriteCard = ({ cityName, temp }) => {
   return (
     <Card>
       <City>{cityName}</City>
-      <Temp>{temp}°</Temp>
+      <Temp>{Math.floor(temp)}°</Temp>
     </Card>
   );
 };

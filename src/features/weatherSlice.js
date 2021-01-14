@@ -9,7 +9,6 @@ export const weatherSlice = createSlice({
       state.city = action.payload.city;
       state.temp = action.payload.temp;
       state.description = action.payload.description;
-      state.isFavorite = action.payload.isfavorite;
     },
   },
 });
