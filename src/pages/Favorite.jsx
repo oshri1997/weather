@@ -47,12 +47,12 @@ const Favorite = () => {
 };
 
 const Glass = styled.div`
-  height: 745px;
+  margin: 2rem auto 0;
+  height: 75vh;
   width: min(1440px, 95%);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  margin: 0 auto;
   overflow-y: auto;
   padding: 2.4rem;
 `;
@@ -66,9 +66,16 @@ const HeaderTitle = styled.h1`
 `;
 const FavoriteContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  column-gap: 3rem;
-  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  justify-items: center;
+  column-gap: 3.8rem;
+  row-gap: 2.5rem;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    column-gap: 3rem;
+    row-gap: 2rem;
+  }
 `;
 const NoFavorites = styled.h1`
   color: #fff;

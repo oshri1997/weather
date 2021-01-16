@@ -21,14 +21,24 @@ const Header = () => {
 const Nav = styled.header`
   width: 75%;
   height: 80px;
-  margin: 3rem auto 0;
+  margin: 0 auto 0;
+  padding: 3rem 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;
 const ImageLogo = styled.img`
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    height: 90%;
+  }
 `;
 
 const NavMenu = styled.div``;
@@ -37,9 +47,13 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: 600;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: rgba(69, 135, 246, 1);
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.6rem;
+  }
 
   :hover {
     color: rgba(69, 246, 165, 1);

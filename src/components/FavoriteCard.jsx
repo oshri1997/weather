@@ -14,7 +14,7 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 180px;
+  width: 220px;
   height: 250px;
   background: linear-gradient(
     to bottom right,
@@ -23,17 +23,28 @@ const Card = styled.div`
   );
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   padding: 1.6rem;
+
+  @media screen and (max-width: 600px) {
+    width: 180px;
+    height: 230px;
+  }
 `;
 const City = styled.h2`
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   white-space: nowrap;
   text-shadow: 2.4px 2px rgba(0, 0, 0, 0.7);
+  @media screen and (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 const Temp = styled.h4`
   color: #fff;
-  font-size: 2rem;
+  font-size: 4rem;
   text-shadow: 2.4px 2px rgba(0, 0, 0, 0.7);
+  @media screen and (max-width: 600px) {
+    font-size: 3rem;
+  }
 `;
 
 export default FavoriteCard;

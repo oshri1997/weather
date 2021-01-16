@@ -56,18 +56,13 @@ function App() {
 }
 
 const Container = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(
     to bottom right,
     rgba(69, 135, 246, 0.8),
     rgba(69, 246, 165, 0.8)
   );
   position: relative;
-  overflow: hidden;
-
-  @media screen and (max-width: 768px) {
-    overflow-y: scroll;
-  }
 `;
 
 export default App;
