@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Home from "./pages/Home";
 import {
@@ -10,8 +10,37 @@ import {
 import Favorite from "./pages/Favorite";
 import styled from "styled-components";
 import Header from "./components/Header";
+import { updateFavorite } from "./features/favoriteSlice";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const localFavorites = JSON.parse(localStorage.getItem("Favorites"));
+    if (localFavorites) {
+      localFavorites.map(async (localFavorite) => {
+        await axios
+          .get(
+            `http://api.openweathermap.org/data/2.5/weather?q=${localFavorite.city}&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric`
+          )
+          .then(({ data }) => {
+            dispatch(
+              updateFavorite({
+                id: localFavorite.id,
+                city: localFavorite.city,
+                temp: data.main.temp,
+                description: data.weather[0].description,
+              })
+            );
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+    }
+  }, [dispatch]);
+
   return (
     <Router>
       <Container>
@@ -35,6 +64,10 @@ const Container = styled.section`
   );
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    overflow-y: scroll;
+  }
 `;
 
 export default App;

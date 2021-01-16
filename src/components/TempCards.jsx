@@ -18,29 +18,23 @@ const TempCards = () => {
 
   useEffect(() => {
     if (!weatherState.city) {
-      const displayAfterTwoSec = () => {
+      const Delay = () => {
         setTimeout(() => {
           isDisplay(true);
         }, 1000);
       };
-      displayAfterTwoSec();
+      Delay();
     } else {
       isDisplay(true);
     }
-  }, [weatherState]);
+  }, [weatherState.city]);
 
   useEffect(() => {
     const result = favoriteState.find((fav) => fav.id === weatherState.id);
     if (result) {
       setIsFavorite(true);
     } else setIsFavorite(false);
-
-    saveToLocalStorage(favoriteState);
   }, [favoriteState, weatherState]);
-
-  const saveToLocalStorage = (favorites) => {
-    localStorage.setItem("Favorites", JSON.stringify(favorites));
-  };
 
   const toggleFavorite = () => {
     if (isFavorite) {

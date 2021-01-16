@@ -27,6 +27,7 @@ const Card = styled.div`
 const City = styled.h2`
   color: #fff;
   font-size: 1.4rem;
+  white-space: nowrap;
   text-shadow: 2.4px 2px rgba(0, 0, 0, 0.7);
 `;
 const Temp = styled.h4`

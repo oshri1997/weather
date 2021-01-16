@@ -58,6 +58,10 @@ const BubbleTop = styled.img`
   height: auto;
   width: 45rem;
   z-index: -5;
+
+  @media screen and (max-width: 768px) {
+    width: 32rem;
+  }
 `;
 const BubbleBottom = styled.img`
   position: absolute;
@@ -65,6 +69,12 @@ const BubbleBottom = styled.img`
   left: 20px;
   height: auto;
   width: 30rem;
+
+  @media screen and (max-width: 768px) {
+    width: 20rem;
+    bottom: -300px;
+    left: -80px;
+  }
 `;
 
 const GlassContainer = styled.div`
@@ -82,6 +92,7 @@ const Glass = styled.div`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   backdrop-filter: blur(10px);
+  z-index: 20;
 `;
 
 const CardContainer = styled.div`

@@ -13,7 +13,7 @@ export const weatherSlice = createSlice({
   },
 });
 
-export const { setWeather, addToFavorite } = weatherSlice.actions;
+export const { setWeather } = weatherSlice.actions;
 
 export const selectWeather = (state) => state.weather;
 

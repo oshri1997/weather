@@ -1,27 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import FavoriteCard from "../components/FavoriteCard";
 import { selectFavorite } from "../features/favoriteSlice";
+import ReactLoading from "react-loading";
+
 const Favorite = () => {
   const favoriteState = useSelector(selectFavorite);
+  const [display, isDisplay] = useState(false);
+  const localFavorites = JSON.parse(localStorage.getItem("Favorites"));
 
+  useEffect(() => {
+    if (favoriteState) {
+      const Delay = () => {
+        setTimeout(() => {
+          isDisplay(true);
+        }, 800);
+      };
+      Delay();
+    } else {
+      isDisplay(true);
+    }
+  }, []);
   return (
     <Glass>
       <HeaderTitle>My Favorites</HeaderTitle>
-      <FavoriteContainer>
-        {favoriteState.length > 0 ? (
-          favoriteState.map((favorite) => (
-            <FavoriteCard
-              key={favorite.id}
-              cityName={favorite.city}
-              temp={favorite.temp}
-            />
-          ))
-        ) : (
-          <NoFavorites>No Favorites</NoFavorites>
-        )}
-      </FavoriteContainer>
+      {display ? (
+        <FavoriteContainer>
+          {favoriteState.length > 0 ? (
+            favoriteState.map((favorite) => (
+              <FavoriteCard
+                key={favorite.id}
+                cityName={favorite.city}
+                temp={favorite.temp}
+              />
+            ))
+          ) : (
+            <NoFavorites>No Favorites</NoFavorites>
+          )}
+        </FavoriteContainer>
+      ) : (
+        <ReactLoading type="bubbles" color="#fff" height={100} width={100} />
+      )}
     </Glass>
   );
 };
