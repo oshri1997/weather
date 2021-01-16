@@ -5,6 +5,7 @@ export const weatherSlice = createSlice({
   initialState: {},
   reducers: {
     setWeather: (state, action) => {
+      state.id = action.payload._id;
       state.city = action.payload.city;
       state.temp = action.payload.temp;
       state.description = action.payload.description;
@@ -14,6 +15,6 @@ export const weatherSlice = createSlice({
 
 export const { setWeather } = weatherSlice.actions;
 
-export const selectWeather = (state) => state;
+export const selectWeather = (state) => state.weather;
 
 export default weatherSlice.reducer;
