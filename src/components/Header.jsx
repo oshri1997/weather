@@ -27,17 +27,23 @@ const Nav = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1200px) {
     width: 90%;
+  }
+  @media screen and (max-width: 420px) {
+    width: 95%;
   }
 `;
 const ImageLogo = styled.img`
   width: 100%;
   height: 100%;
-
   @media screen and (max-width: 600px) {
     width: 90%;
     height: 90%;
+  }
+  @media screen and (max-width: 420px) {
+    width: 75%;
+    height: 75%;
   }
 `;
 
@@ -53,6 +59,10 @@ const NavLink = styled(Link)`
 
   @media screen and (max-width: 600px) {
     font-size: 1.6rem;
+  }
+  @media screen and (max-width: 420px) {
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
   }
 
   :hover {
