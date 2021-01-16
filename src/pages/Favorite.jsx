@@ -8,7 +8,6 @@ import ReactLoading from "react-loading";
 const Favorite = () => {
   const favoriteState = useSelector(selectFavorite);
   const [display, isDisplay] = useState(false);
-  const localFavorites = JSON.parse(localStorage.getItem("Favorites"));
 
   useEffect(() => {
     if (favoriteState) {

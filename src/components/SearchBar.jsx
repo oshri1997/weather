@@ -13,7 +13,7 @@ const SearchBar = () => {
     e.preventDefault();
     await axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric`
       )
       .then(({ data }) => {
         dispatch(

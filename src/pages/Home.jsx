@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import BubbleOne from "../images/BubbleOne.svg";
-import BubbleTwo from "../images/BubbleTwo.svg";
 import SearchBar from "../components/SearchBar";
 import TempCards from "../components/TempCards";
 import axios from "axios";
@@ -19,7 +17,7 @@ const Home = () => {
       const fetchData = async () => {
         await axios
           .get(
-            "http://api.openweathermap.org/data/2.5/weather?q=tel-aviv&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric"
+            "https://api.openweathermap.org/data/2.5/weather?q=tel-aviv&appid=b0a3a56cdf847e01bafd3230c4409e71&units=metric"
           )
           .then(({ data }) => {
             dispatch(
