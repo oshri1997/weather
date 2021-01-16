@@ -18,6 +18,7 @@ const SearchBar = () => {
       .then(({ data }) => {
         dispatch(
           setWeather({
+            _id: data.id,
             city: data.name,
             temp: data.main.temp,
             description: data.weather[0].description,
@@ -59,8 +60,8 @@ const FormContainer = styled.form`
   position: relative;
 `;
 const SearchInput = styled.input`
-  width: 400px;
-  height: 3rem;
+  width: 40rem;
+  height: 5rem;
   background-color: none;
   border: none;
   outline: none;
@@ -68,6 +69,9 @@ const SearchInput = styled.input`
   border-radius: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   font-size: 18px;
+  @media screen and (max-width: 600px) {
+    width: 28rem;
+  }
 
   ::placeholder {
     color: #555;
@@ -76,8 +80,8 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-  height: 3rem;
-  width: 8rem;
+  height: 5rem;
+  width: 13rem;
   outline: none;
   font-size: 18px;
   border: none;
@@ -88,6 +92,9 @@ const SearchButton = styled.button`
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease-in;
   cursor: pointer;
+  @media screen and (max-width: 600px) {
+    width: 12rem;
+  }
 
   :active {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
