@@ -58,6 +58,7 @@ const InputConainer = styled.div`
 
 const FormContainer = styled.form`
   position: relative;
+  padding: 0 1rem;
 `;
 const SearchInput = styled.input`
   width: 40rem;
@@ -69,13 +70,30 @@ const SearchInput = styled.input`
   border-radius: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   font-size: 18px;
-  @media screen and (max-width: 600px) {
-    width: 28rem;
+  @media screen and (max-width: 620px) {
+    width: 26rem;
+  }
+  @media screen and (max-width: 460px) {
+    font-size: 16px;
+    width: 17rem;
+    height: 4.5rem;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 16px;
+    width: 16rem;
+    height: 4.5rem;
   }
 
   ::placeholder {
     color: #555;
     font-size: 18px;
+
+    @media screen and (max-width: 460px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 360x) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -92,8 +110,17 @@ const SearchButton = styled.button`
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease-in;
   cursor: pointer;
-  @media screen and (max-width: 600px) {
-    width: 12rem;
+  @media screen and (max-width: 460px) {
+    width: 8rem;
+    height: 4.6rem;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 14px;
+    width: 7rem;
+    height: 4.5rem;
+    border-radius: 10px;
   }
 
   :active {
@@ -107,9 +134,9 @@ const SearchButton = styled.button`
 
 const ErrorMessage = styled.p`
   position: absolute;
-  bottom: -1.5rem;
-  left: 10px;
-
+  bottom: -2.5rem;
+  left: 2rem;
+  font-size: 1.6rem;
   color: red;
 `;
 export default SearchBar;

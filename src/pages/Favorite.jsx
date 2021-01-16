@@ -47,7 +47,7 @@ const Favorite = () => {
 
 const Glass = styled.div`
   margin: 2rem auto 0;
-  height: 75vh;
+  min-height: 75vh;
   width: min(1440px, 95%);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;

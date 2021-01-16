@@ -27,7 +27,7 @@ const TempCards = () => {
     } else {
       isDisplay(true);
     }
-  }, [weatherState.city]);
+  }, []);
 
   useEffect(() => {
     const result = favoriteState.find((fav) => fav.id === weatherState.id);
