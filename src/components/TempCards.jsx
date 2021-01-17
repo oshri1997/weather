@@ -72,6 +72,7 @@ const Card = styled.div`
   justify-content: center;
   height: 45rem;
   width: 55rem;
+  max-width: 80vw;
   background: linear-gradient(
     to bottom right,
     rgba(69, 246, 165, 1),
@@ -81,11 +82,6 @@ const Card = styled.div`
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   border: 1px solid #fff;
   position: relative;
-
-  @media screen and (max-width: 600px) {
-    width: 40rem;
-    height: 45rem;
-  }
 `;
 const FavoriteIconOff = styled(AiOutlineStar)`
   position: absolute;
@@ -112,35 +108,21 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  @media screen and (max-width: 600px) {
-    height: 30rem;
-  }
 `;
 const CityName = styled.h1`
   font-size: 5rem;
   color: #fff;
   white-space: nowrap;
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;
-  }
 `;
 const Temp = styled.h1`
   font-size: 8rem;
   color: #fff;
-  @media screen and (max-width: 600px) {
-    font-size: 6rem;
-  }
 `;
 const Description = styled.h1`
   font-size: 4.5rem;
   color: #fff;
   white-space: nowrap;
   display: inline-block;
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;
-  }
 `;
 
 export default TempCards;

@@ -6,9 +6,9 @@ import LogoImg from "../images/Logo.svg";
 const Header = () => {
   return (
     <Nav>
-      <Link to="/">
+      <LogoLink to="/">
         <ImageLogo src={LogoImg} alt="Logo" />
-      </Link>
+      </LogoLink>
 
       <NavMenu>
         <NavLink to="/">Home</NavLink>
@@ -19,32 +19,35 @@ const Header = () => {
 };
 
 const Nav = styled.header`
-  width: 75%;
+  width: 75vw;
   height: 80px;
   margin: 0 auto 0;
   padding: 3rem 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
-  @media screen and (max-width: 1200px) {
-    width: 90%;
+  z-index: 999;
+
+  @media screen and (min-width: 359.9px) and (max-width: 767.9px) {
+    min-width: 90vw;
+    justify-content: space-around;
   }
-  @media screen and (max-width: 420px) {
-    width: 95%;
+  @media screen and (max-width: 359.9px) {
+    min-width: 100vw;
+    justify-content: space-evenly;
+  }
+`;
+
+const LogoLink = styled(Link)`
+  width: 150px;
+
+  @media screen and (max-width: 359.9px) {
+    width: 100px;
   }
 `;
 const ImageLogo = styled.img`
   width: 100%;
   height: 100%;
-  @media screen and (max-width: 600px) {
-    width: 90%;
-    height: 90%;
-  }
-  @media screen and (max-width: 420px) {
-    width: 75%;
-    height: 75%;
-  }
 `;
 
 const NavMenu = styled.div``;
@@ -57,11 +60,7 @@ const NavLink = styled(Link)`
   cursor: pointer;
   color: rgba(69, 135, 246, 1);
 
-  @media screen and (max-width: 600px) {
-    font-size: 1.6rem;
-  }
-  @media screen and (max-width: 420px) {
-    font-size: 1.3rem;
+  @media screen and (max-width: 360px) {
     padding: 0 0.5rem;
   }
 
