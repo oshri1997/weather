@@ -13,3 +13,14 @@ html {
 body {
   font-family: "Poppins", sans-serif;
 }
+
+@media screen and (max-width: 359.9px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (min-width: 359.9px) and (max-width: 767.9px) {
+  html {
+    font-size: 56.5%;
+  }
+}

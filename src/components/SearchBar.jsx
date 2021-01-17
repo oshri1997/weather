@@ -32,7 +32,7 @@ const SearchBar = () => {
     setCity("");
   };
   return (
-    <InputConainer>
+    <>
       <FormContainer>
         <SearchInput
           value={city}
@@ -45,20 +45,24 @@ const SearchBar = () => {
         </SearchButton>
         {error ? <ErrorMessage>{error}</ErrorMessage> : null}
       </FormContainer>
-    </InputConainer>
+    </>
   );
 };
 
-const InputConainer = styled.div`
-  height: 80px;
+const FormContainer = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const FormContainer = styled.form`
   position: relative;
   padding: 0 1rem;
+  height: 80px;
+  width: 100%;
+
+  @media screen and (max-width: 767.9px) {
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-around;
+  }
 `;
 const SearchInput = styled.input`
   width: 40rem;
@@ -70,30 +74,15 @@ const SearchInput = styled.input`
   border-radius: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   font-size: 18px;
-  @media screen and (max-width: 620px) {
-    width: 26rem;
-  }
-  @media screen and (max-width: 460px) {
-    font-size: 16px;
-    width: 17rem;
-    height: 4.5rem;
-  }
-  @media screen and (max-width: 360px) {
-    font-size: 16px;
-    width: 16rem;
-    height: 4.5rem;
+
+  @media screen and (max-width: 767.9px) {
+    width: 75vw;
+    height: 2rem;
   }
 
   ::placeholder {
     color: #555;
-    font-size: 18px;
-
-    @media screen and (max-width: 460px) {
-      font-size: 16px;
-    }
-    @media screen and (max-width: 360x) {
-      font-size: 14px;
-    }
+    font-size: 1.8rem;
   }
 `;
 
@@ -101,7 +90,7 @@ const SearchButton = styled.button`
   height: 5rem;
   width: 13rem;
   outline: none;
-  font-size: 18px;
+  font-size: 1.8rem;
   border: none;
   border-radius: 20px;
   color: #fff;
@@ -110,17 +99,10 @@ const SearchButton = styled.button`
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease-in;
   cursor: pointer;
-  @media screen and (max-width: 460px) {
-    width: 8rem;
-    height: 4.6rem;
-    border-radius: 15px;
-    font-size: 16px;
-  }
-  @media screen and (max-width: 360px) {
-    font-size: 14px;
-    width: 7rem;
-    height: 4.5rem;
-    border-radius: 10px;
+
+  @media screen and (max-width: 767.9px) {
+    min-width: 25vw;
+    height: 4rem;
   }
 
   :active {

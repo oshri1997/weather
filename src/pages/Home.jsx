@@ -48,16 +48,11 @@ const Home = () => {
 const Glass = styled.div`
   margin: 2rem auto 0;
   min-height: 75vh;
-  /* padding-bottom: 2.5rem; */
   width: min(1440px, 90%);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   backdrop-filter: blur(10px);
   z-index: 20;
-
-  @media screen and (max-width: 460px) {
-    padding: 0 2rem;
-  }
 `;
 
 const CardContainer = styled.div`
@@ -65,10 +60,6 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   padding-bottom: 3rem;
-
-  @media screen and (max-width: 600px) {
-    margin-top: 2rem;
-  }
 `;
 
 export default Home;

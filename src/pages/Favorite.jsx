@@ -69,12 +69,6 @@ const FavoriteContainer = styled.div`
   justify-items: center;
   column-gap: 3.8rem;
   row-gap: 2.5rem;
-
-  @media screen and (max-width: 600px) {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    column-gap: 3rem;
-    row-gap: 2rem;
-  }
 `;
 const NoFavorites = styled.h1`
   color: #fff;
